@@ -6,7 +6,7 @@
 /*   By: qxia <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 14:02:57 by qxia              #+#    #+#             */
-/*   Updated: 2022/07/27 16:45:32 by qxia             ###   ########.fr       */
+/*   Updated: 2022/08/04 17:19:53 by qxia             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,33 +23,36 @@
 # include <stdint.h>
 # include "mlx.h"
 
-typedef struct s_cub3d
+typedef struct s_map //map informtion
 {
-	char	**map;
-	void	*mlx_ptr;
-	void	*win_ptr;
-	struct s_images *imgs;
-	struct s_info	*info;
-	struct s_player *ptr;
-}t_cub3d;
+	char	*we_path;
+	char	*ea_path;
+	char	*no_path;
+	char	*so_path;
+	int	floor_color;
+	int	ceiling_color;
+}t_map;
 
-typedef struct s_info
-{
-	char	*we;
-	char	*ea;
-	char	*no;
-	char	*so;
-	int	*f;
-	int	*c;
-}t_info;
-
-typedef struct s_img
+typedef struct s_imgs //images information
 {
 	void	*img_ptr;
 	char	*img_addr;
-	int	bpp;
-	int	size;
+	int	bits_per_pixel;
+	int	length;
 	int	endian;
-	int	w;
-	int	h;
-}t_img;
+	int	width;
+	int	height;
+}t_imgs;
+
+typedef struct s_cub3d
+{
+        void    *mlx;
+        void    *win;
+        t_map   map;
+        t_imgs  wall_N;
+	t_imgs	wall_S;
+	t_imgs	wall_E;
+	t_imgs	wall_W;
+        struct s_player *ptr;
+}t_cub3d;
+
