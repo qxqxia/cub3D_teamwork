@@ -6,14 +6,14 @@
 /*   By: qxia <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 14:02:57 by qxia              #+#    #+#             */
-/*   Updated: 2022/08/04 17:19:53 by qxia             ###   ########.fr       */
+/*   Updated: 2022/08/05 11:16:24 by qxia             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D_H
 # define CUB3D_H
 
-# include "libft.h"
+//# include "libft.h"
 # include <unistd.h>
 # include <stdio.h>
 # include <string.h>
@@ -21,7 +21,7 @@
 # include <fcntl.h>
 # include <math.h>
 # include <stdint.h>
-# include "mlx.h"
+# include "../mlx/mlx.h"
 
 typedef struct s_map //map informtion
 {
@@ -56,3 +56,4 @@ typedef struct s_cub3d
         struct s_player *ptr;
 }t_cub3d;
 
+#endif
