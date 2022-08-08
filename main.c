@@ -6,7 +6,7 @@
 /*   By: qxia <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 14:32:02 by qxia              #+#    #+#             */
-/*   Updated: 2022/08/05 11:18:53 by qxia             ###   ########.fr       */
+/*   Updated: 2022/08/08 13:03:28 by qxia             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,14 +31,19 @@ void	run_game(t_map map)
 	mlx_loop(cub3d.mlx);
 }
 
-int	main(int argc,char *argv[])
+int	main(void)
 {
-	t_map	map;
+	//t_map	map;
+	void *mlx;
+	void *win;
 
 	//check_args();
 	//if (map_init(&map) == -1)
 	//	fatal(-1);
 	//parse_map(&map, argv[1]);
-	run_game(map);
+	mlx = mlx_init();
+	win = mlx_new_window(mlx, 640, 480, "cub3d");
+	mlx_loop(mlx);
+	//run_game(map);
 	return (0);
 }
