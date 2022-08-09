@@ -3,47 +3,42 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: qxia <marvin@42.fr>                        +#+  +:+       +#+        */
+/*   By: qinxia <qinxia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 14:32:02 by qxia              #+#    #+#             */
-/*   Updated: 2022/08/08 13:03:28 by qxia             ###   ########.fr       */
+/*   Updated: 2022/08/09 14:32:15 by qinxia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "include/cub3d.h"
 
-void	check_args(int argc, char *argv[])
+int	main(int argc, char *argv[])
 {
+	int		fd;
+	char	**map;
+	size_t	map_height;
 
-}
-
-void	run_game(t_map map)
-{
-	t_cub3d	cub3d;
-
-	cub3d.map = map;
-	cub3d.mlx = mlx_init();
-	/*if (cub3d_init(&cub3d) == -1)
+	if (argc == 2)
 	{
-		cub3d_free(&cub3d);
-		fatal(-1);
-	}*/
-	mlx_loop(cub3d.mlx);
-}
-
-int	main(void)
-{
-	//t_map	map;
-	void *mlx;
-	void *win;
-
-	//check_args();
-	//if (map_init(&map) == -1)
-	//	fatal(-1);
-	//parse_map(&map, argv[1]);
-	mlx = mlx_init();
-	win = mlx_new_window(mlx, 640, 480, "cub3d");
-	mlx_loop(mlx);
-	//run_game(map);
+		fd = file_open(argv[1]);
+		if (fd > 0)
+		{
+			map_height = read_map_2d(fd, &map);
+			if (map_height == (size_t)(-1))
+			{
+				printf("Sorry, map is empty \n");
+				return (0);
+			}
+			if (parsing_map(&map, map_height) == 0)
+				run_game();
+		}
+		else
+			printf("File open error\n");
+	}
+	else
+		printf("Worong arguments,"
+			" and it must be a map with .cub extension\n");
 	return (0);
 }
+
+
