@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing_map.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: qinxia <qinxia@student.42.fr>              +#+  +:+       +#+        */
+/*   By: qxia <qxia@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 14:42:23 by qinxia            #+#    #+#             */
-/*   Updated: 2022/08/09 15:04:13 by qinxia           ###   ########.fr       */
+/*   Updated: 2022/08/12 13:25:22 by qxia             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,23 +39,6 @@ static int	parsing_map_by_lines(void)
 	}
 	return (0);
 }
-
-/*static int	parsing_player(size_t i, size_t j)
-{
-	static int	n_s_e_w = 0;
-
-	if (my_map.map[i][j] == 'N' || my_map.map[i][j] == 'S' || \
-			my_map.map[i][j] == 'E' || my_map.map[i][j] == 'W')
-	{
-		my_map.dir = my_map.map[i][j];
-		cub3d.pos.map_x = j;
-		cub3d.pos.map_y = i;
-		n_s_e_w++;
-	}
-	if (n_s_e_w > 1)
-		return (errors(8));
-	return (0);
-}*/
 
 static int	parsing_map_content(void)
 {

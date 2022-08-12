@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: qinxia <qinxia@student.42.fr>              +#+  +:+       +#+        */
+/*   By: qxia <qxia@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 14:02:57 by qxia              #+#    #+#             */
-/*   Updated: 2022/08/09 15:04:20 by qinxia           ###   ########.fr       */
+/*   Updated: 2022/08/12 13:18:49 by qxia             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,72 +23,77 @@
 # include <stdint.h>
 # include "../mlx/mlx.h"
 
-typedef struct s_imgs //images information
+/**************Macros************************/
+
+#  define XK_ESCAPE 0xff1b
+#  define XK_W 0x0077
+#  define XK_A 0x0061
+#  define XK_S 0x0073
+#  define XK_D 0x0064
+#  define XK_LEFT 0xff51
+#  define XK_RIGHT 0xff53
+
+typedef struct s_img
 {
 	void	*img;
 	char	*addr;
-	int	bits_per_pixel;
-	int	line_length;
-	int	endian;
-}t_imgs;
+	int		bits_per_pixel;
+	int		size;
+	int		endian;
+	int		w;
+	int		h;
+}t_img;
 
-struct s_map //map informtion
+typedef struct s_img_set
 {
-	char	*we;
-	char	*ea;
+	t_img	no;
+	t_img	so;
+	t_img	we;
+	t_img	ea;
+	t_img	*plr;
+	t_img	*dir;
+	t_img	*flr;
+}t_img_set;
+
+typedef struct s_info
+{
 	char	*no;
 	char	*so;
-	int	floor_color;
-	int	ceiling_color;
-	char	*player;
-	char	**map;
-	size_t	row; //高度
-	size_t	col; //宽度
-	char	dir;
-}my_map;
+	char	*we;
+	char	*ea;
+	int		*f;
+	int		*c;
+}t_info;
 
-struct	s_textures
+typedef struct s_player
 {
-	int		tex_width;
-	int		tex_height;
-	t_imgs	no;
-	t_imgs	so;
-	t_imgs	we;
-	t_imgs	ea;
-	t_imgs	ceiling;
-	t_imgs	floor;
-};
+	double	p_x;
+	double	p_y;
+	double	d_x;
+	double	d_y;
+	double	pl_x;
+	double	pl_y;
+}t_player;
 
-/*typedef struct	s_player
+typedef struct s_cub3d
 {
-	double		x;
-	double		y;
-	char	texture;
-	int	player_width;
-	int	player_height;
-	int player_screen_x;
-} t_player;*/
+	char			**map;
+	void			*mlx;
+	void			*win;
+	t_img_set		*imgs;
+	t_info			*info;
+	t_player		*plr;
+}t_cub3d;
 
-struct	s_keys
-{
-	int		w;
-	int		s;
-	int		d;
-	int		a;
-	int		left;
-	int		right;
-};
 
-struct s_cub3d
-{
-        void    *mlx;
-        void    *win;
-		t_imgs	img;
-        struct s_map   map;
-		struct s_textures textures;
-        struct s_keys	keys;
-}cub3d;
+/***********************check_map****************************/
+
+
+/***********************image*******************************/
+
+
+/*************************movment**************************/
+
 
 int	run_game(void);
-
 #endif
