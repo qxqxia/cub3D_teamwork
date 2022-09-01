@@ -1,0 +1,10 @@
+NO     ./textures/planks.xpm   
+SO ./textures/brick.xpm
+F  38,   26,  0   
+
+WE      ./textures/green_brick.xpm
+EA      ./textures/green_brick.xpm
+
+
+C 0, 230,240
+

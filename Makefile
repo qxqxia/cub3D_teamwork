@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: qxia <marvin@42.fr>                        +#+  +:+       +#+         #
+#    By: qxia <qxia@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/21 14:09:27 by qxia              #+#    #+#              #
-#    Updated: 2022/08/10 13:57:59 by qxia             ###   ########.fr        #
+#    Updated: 2022/09/01 16:07:58 by qxia             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,14 +20,14 @@ LFLAGS = -L./libft -lft
 
 CFLAG = -Wall -Wextra -Werror
 
-MGLAGS = -L./mlx -l/mlx -lXext -lX11 -lm
+MFLAGS = -L./mlx -lmlx -lXext -lX11 -lm
 
 MLX_DIR := ./mlx
 
 MLX = libmlx.a
 
-SRC := main.c \
-	cub3d.c \
+SRCS := main.c \
+			ft_return.c \
 
 OBJS := $(SRCS:%.c=%.o)
 

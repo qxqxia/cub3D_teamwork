@@ -6,7 +6,7 @@
 /*   By: qxia <qxia@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 14:02:57 by qxia              #+#    #+#             */
-/*   Updated: 2022/08/12 13:18:49 by qxia             ###   ########.fr       */
+/*   Updated: 2022/09/01 16:06:20 by qxia             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ typedef struct s_img_set
 	t_img	*plr;
 	t_img	*dir;
 	t_img	*flr;
+	t_img	*smallmap;
 }t_img_set;
 
 typedef struct s_info
@@ -85,6 +86,20 @@ typedef struct s_cub3d
 	t_player		*plr;
 }t_cub3d;
 
+enum	e_error_codes
+{
+	ERR_ARGS = 1,
+	ERR_FILE,
+	ERR_FD,
+	ERR_GNL,
+	ERR_MLX,
+	ERR_MALLOC,
+	ERR_INFO,
+	ERR_MAP_NULL,
+	ERR_MAP_OPEN,
+	ERR_MAP_CHAR,
+	ERR_MAP_MOREPLAYER,
+};
 
 /***********************check_map****************************/
 
@@ -94,6 +109,6 @@ typedef struct s_cub3d
 
 /*************************movment**************************/
 
+int	ft_return(int ret_code, t_cub3d *cub3d);
 
-int	run_game(void);
 #endif
