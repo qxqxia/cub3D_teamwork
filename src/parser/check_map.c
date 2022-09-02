@@ -6,7 +6,7 @@
 /*   By: qxia <qxia@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 16:19:52 by qxia              #+#    #+#             */
-/*   Updated: 2022/09/01 16:41:08 by qxia             ###   ########.fr       */
+/*   Updated: 2022/09/02 11:11:18 by qxia             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static int  ft_map_shape(char **map, int i, int j, int size )
     if (!map[i])
         return (0);
     str_len = ft_strlen(map[i]);
-    if (i = 0 || j = 0 || i == size - 1 || j == str_len -1)
+    if (i == 0 || j == 0 || i == size - 1 || j == str_len -1)
     {
         if (map[i][j] != '1' && map[i][j] != ' ')
             return (0);
@@ -75,7 +75,7 @@ int ft_check_char(char **map)
         j = 0;
         while (map[i][j])
         {
-            if (map[i][j] == 'W' || map[i][j] == 'E' || map[i][j]) == 'S' || 
+            if (map[i][j] == 'W' || map[i][j] == 'E' || map[i][j] == 'S' || 
                     map[i][j] == 'N')
                 player_count++;
             if (map[i][j] != '0' && map[i][j] != '1' && map[i][j] != 'N' && \
@@ -87,7 +87,7 @@ int ft_check_char(char **map)
 		i++;
     }
     if (player_count != 1)
-        return (ERR_MAP_PLAYER);
+        return (ERR_MAP_MOREPLAYER);
     return (0);
 }
 

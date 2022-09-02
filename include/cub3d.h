@@ -6,7 +6,7 @@
 /*   By: qxia <qxia@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 14:02:57 by qxia              #+#    #+#             */
-/*   Updated: 2022/09/01 16:06:20 by qxia             ###   ########.fr       */
+/*   Updated: 2022/09/02 11:50:52 by qxia             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ typedef struct s_img
 {
 	void	*img;
 	char	*addr;
-	int		bits_per_pixel;
+	int		bpp;
 	int		size;
 	int		endian;
 	int		w;
@@ -102,10 +102,17 @@ enum	e_error_codes
 };
 
 /***********************check_map****************************/
-
+int ft_check_info(t_info *info);
+int ft_check_map(char **map);
+int	ft_get_map(int fd, t_cub3d **cub3d);
+int	ft_parser(char *filename, t_cub3d **cub3d);
+int	ft_init_info(t_cub3d **cub3d);
+int	ft_get_info(int fd, t_cub3d **cub3d);
+int	ft_arraylen(char **str_array);
+void	ft_free_strarray(char **str_array);
 
 /***********************image*******************************/
-
+int	ft_init_imgs(t_cub3d *cub);
 
 /*************************movment**************************/
 

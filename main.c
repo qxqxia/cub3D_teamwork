@@ -6,7 +6,7 @@
 /*   By: qxia <qxia@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 14:32:02 by qxia              #+#    #+#             */
-/*   Updated: 2022/09/01 16:13:11 by qxia             ###   ########.fr       */
+/*   Updated: 2022/09/02 10:17:32 by qxia             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,8 @@ int	main(int argc, char *argv[])
 		return(ft_return(ret, cub3d));
 	cub3d->imgs = malloc(sizeof(t_img_set));
 	cub3d->mlx = mlx_init();
-	//if (texture_init(cub3d))
-		//return (ft_return(ERR_INFO, cub3d));
+	if (ft_init_imgs(cub3d))
+		return (ft_return(ERR_INFO, cub3d));
 	if (run_game(cub3d))
 		return (ft_return(ERR_INFO, cub3d));
 	return (0);

@@ -3,13 +3,14 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: rliu <marvin@42.fr>                        +#+  +:+       +#+         #
+#    By: qxia <qxia@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/29 11:11:09 by rliu              #+#    #+#              #
-#    Updated: 2022/05/25 15:15:58 by rliu             ###   ########.fr        #
+#    Updated: 2022/09/02 11:54:37 by qxia             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-SRCS =	ft_isalpha.c \
+
+SRCS = ft_isalpha.c \
 		ft_isdigit.c \
 		ft_isalnum.c \
 		ft_isascii.c \
@@ -43,8 +44,9 @@ SRCS =	ft_isalpha.c \
 		ft_putstr_fd.c \
 		ft_putendl_fd.c \
 		ft_putnbr_fd.c\
-		ft_strcmp.c
-
+		ft_strcmp.c \
+		get_next_line.c \
+		//ft_strjoin_free.c \
 
 BONUS = ft_lstnew.c \
 		ft_lstadd_front.c \

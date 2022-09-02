@@ -6,13 +6,13 @@
 /*   By: qxia <qxia@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/12 13:26:27 by qxia              #+#    #+#             */
-/*   Updated: 2022/09/01 16:26:58 by qxia             ###   ########.fr       */
+/*   Updated: 2022/09/02 11:08:26 by qxia             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../include/cub3d.h"
 
-int check_filename(char *path)
+int check_imgname(char *path)
 {
     char    *str;
 
@@ -31,8 +31,8 @@ int ft_check_fd(t_info *info)
 
     if (!info->no || !info->so || !info->we || !info->ea)
 		return (ERR_FD);
-	if (check_filename(info->no) || check_filename(info->so) || \
-		check_filename(info->we) || check_filename(info->ea))
+	if (check_imgname(info->no) || check_imgname(info->so) || \
+		check_imgname(info->we) || check_imgname(info->ea))
 		return (ERR_FD);
 	fd = open(info->no, O_RDONLY);
 	if (fd <= 0)
