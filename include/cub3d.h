@@ -6,7 +6,7 @@
 /*   By: qxia <qxia@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 14:02:57 by qxia              #+#    #+#             */
-/*   Updated: 2022/09/02 11:50:52 by qxia             ###   ########.fr       */
+/*   Updated: 2022/09/05 13:58:07 by qxia             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ typedef struct s_img_set
 	t_img	*dir;
 	t_img	*flr;
 	t_img	*smallmap;
+	t_img	*graphic;
 }t_img_set;
 
 typedef struct s_info
@@ -117,5 +118,6 @@ int	ft_init_imgs(t_cub3d *cub);
 /*************************movment**************************/
 
 int	ft_return(int ret_code, t_cub3d *cub3d);
+void	ft_free_cub3d(t_cub3d *cub3d);
 
 #endif

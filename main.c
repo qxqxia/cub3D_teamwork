@@ -6,7 +6,7 @@
 /*   By: qxia <qxia@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 14:32:02 by qxia              #+#    #+#             */
-/*   Updated: 2022/09/02 10:17:32 by qxia             ###   ########.fr       */
+/*   Updated: 2022/09/05 11:45:51 by qxia             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	main(int argc, char *argv[])
 	cub3d = NULL;
 	if (argc != 2)
 		return (ft_return(ERR_ARGS, cub3d));
-	//ret = ft_parser(av[1], &cub3d);
+	ret = ft_parser(argv[1], &cub3d);
 	if (ret != 0)
 		return(ft_return(ret, cub3d));
 	cub3d->imgs = malloc(sizeof(t_img_set));

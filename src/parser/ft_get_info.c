@@ -6,7 +6,7 @@
 /*   By: qxia <qxia@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 10:41:48 by qxia              #+#    #+#             */
-/*   Updated: 2022/09/02 11:52:03 by qxia             ###   ########.fr       */
+/*   Updated: 2022/09/05 12:01:25 by qxia             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,8 +90,8 @@ int	ft_put_info_in_cub3d(char **info_array, t_info *info_struct)
 			info_struct->f = ft_get_colors(line);
 		ft_free_strarray(line);*/
 	}
-	if (!info_struct->c || !info_struct->f)
-		return (1);
+	/*if (!info_struct->c || !info_struct->f)
+		return (1);*/
 	return (0);
 }
 
@@ -127,11 +127,11 @@ int	ft_get_info(int fd, t_cub3d **cub3d)
 			info_array[index] = line;
 			index++;
 		}
-		else if (line)
-			free(line);
+		/*else if (line)
+			free(line);*/
 	}
-	if (line)
-		free(line);
+	/*if (line)
+		free(line);*/
 	info_array[index] = NULL;
 	if (ft_put_info(cub3d, info_array))
 		return (ERR_INFO);

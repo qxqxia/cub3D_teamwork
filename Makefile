@@ -6,7 +6,7 @@
 #    By: qxia <qxia@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/21 14:09:27 by qxia              #+#    #+#              #
-#    Updated: 2022/09/02 11:06:36 by qxia             ###   ########.fr        #
+#    Updated: 2022/09/05 13:57:09 by qxia             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,8 @@ MLX = libmlx.a
 
 SRCS := main.c \
 			ft_return.c \
-			ft_images.c \
+			ft_init_images.c \
+			ft_free_cub3d.c \
 			src/parser/check_map_util.c \
 			src/parser/check_map.c \
 			src/parser/ft_get_map.c \

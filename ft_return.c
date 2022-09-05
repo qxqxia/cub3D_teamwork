@@ -6,14 +6,14 @@
 /*   By: qxia <qxia@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 15:35:59 by qxia              #+#    #+#             */
-/*   Updated: 2022/09/01 15:39:12 by qxia             ###   ########.fr       */
+/*   Updated: 2022/09/05 13:47:00 by qxia             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./include/cub3d.h"
 int	ft_return(int ret_code, t_cub3d *cub3d)
 {
-	//ft_free_cub3d(cub3d);
+	ft_free_cub3d(cub3d);
 	if (ret_code == ERR_ARGS)
 		ft_putstr_fd("Error\nWrong amount of argument(s)\n", 1);
 	if (ret_code == ERR_FILE || ret_code == ERR_GNL)
