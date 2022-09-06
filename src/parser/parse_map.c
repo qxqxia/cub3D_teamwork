@@ -6,7 +6,7 @@
 /*   By: qxia <qxia@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 10:26:54 by qxia              #+#    #+#             */
-/*   Updated: 2022/09/02 11:53:17 by qxia             ###   ########.fr       */
+/*   Updated: 2022/09/06 16:26:58 by qxia             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ int	ft_parser(char *filename, t_cub3d **cub3d)
 		return (cub3d_ret);
 	if (map_ret != 0)
 		return (map_ret);
-	//if (ft_set_player(*cub3d))
-		//return (ERR_MALLOC);
+	if (ft_set_player(*cub3d))
+		return (ERR_MALLOC);
 	return (0);
 }

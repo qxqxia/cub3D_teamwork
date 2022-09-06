@@ -6,7 +6,7 @@
 /*   By: qxia <qxia@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 10:41:48 by qxia              #+#    #+#             */
-/*   Updated: 2022/09/05 12:01:25 by qxia             ###   ########.fr       */
+/*   Updated: 2022/09/06 16:27:40 by qxia             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,11 +127,11 @@ int	ft_get_info(int fd, t_cub3d **cub3d)
 			info_array[index] = line;
 			index++;
 		}
-		/*else if (line)
-			free(line);*/
+		else if (line)
+			free(line);
 	}
-	/*if (line)
-		free(line);*/
+	if (line)
+		free(line);
 	info_array[index] = NULL;
 	if (ft_put_info(cub3d, info_array))
 		return (ERR_INFO);

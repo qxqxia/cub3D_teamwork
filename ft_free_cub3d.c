@@ -6,7 +6,7 @@
 /*   By: qxia <qxia@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 13:47:23 by qxia              #+#    #+#             */
-/*   Updated: 2022/09/05 14:02:53 by qxia             ###   ########.fr       */
+/*   Updated: 2022/09/06 16:28:45 by qxia             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,43 +24,43 @@ void	free_dir_img(t_cub3d *cub, t_img_set *images)
 		mlx_destroy_image(cub->mlx, images->ea.img);
 }
 
-/*void	free_minimap_imgs(t_cub3d *cub, t_images *imgs)
+void	free_smallmap_imgs(t_cub3d *cub, t_img_set *imgs)
 {
 	if (imgs->plr)
 	{
-		mlx_destroy_image(cub->mlx_ptr, imgs->plr->img_ptr);
+		mlx_destroy_image(cub->mlx, imgs->plr->img);
 		free(imgs->plr);
 	}
-	if (imgs->minimp)
+	if (imgs->smallmap)
 	{
-		mlx_destroy_image(cub->mlx_ptr, imgs->minimp->img_ptr);
-		free(imgs->minimp);
+		mlx_destroy_image(cub->mlx, imgs->smallmap->img);
+		free(imgs->smallmap);
 	}
 	if (imgs->dir)
 	{
-		mlx_destroy_image(cub->mlx_ptr, imgs->dir->img_ptr);
+		mlx_destroy_image(cub->mlx, imgs->dir->img);
 		free(imgs->dir);
 	}
 	if (imgs->flr)
 	{
-		mlx_destroy_image(cub->mlx_ptr, imgs->flr->img_ptr);
+		mlx_destroy_image(cub->mlx, imgs->flr->img);
 		free(imgs->flr);
 	}
 	return ;
-}*/
+}
 
 void	ft_free_images(t_cub3d *cub, t_img_set *imgs)
 {
 	if (!imgs)
 		return ;
-	/*if (imgs->canvas)
+	if (imgs->graphic)
 	{
-		mlx_destroy_image(cub->mlx_ptr, imgs->canvas->img_ptr);
-		free(imgs->canvas);
+		mlx_destroy_image(cub->mlx, imgs->graphic->img);
+		free(imgs->graphic);
 	}
-	free_minimap_imgs(cub, imgs);*/
+	free_smallmap_imgs(cub, imgs);
 	free_dir_img(cub, imgs);
-	//free(imgs);
+	free(imgs);
 	return ;
 }
 

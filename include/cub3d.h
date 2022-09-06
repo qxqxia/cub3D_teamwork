@@ -6,7 +6,7 @@
 /*   By: qxia <qxia@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 14:02:57 by qxia              #+#    #+#             */
-/*   Updated: 2022/09/05 13:58:07 by qxia             ###   ########.fr       */
+/*   Updated: 2022/09/06 16:21:33 by qxia             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,32 @@ typedef struct s_player
 	double	pl_y;
 }t_player;
 
+typedef struct s_ray
+{
+	double		lp_x;
+	double		dir_x;
+	double		dir_y;
+	double		side_dist_x;
+	double		side_dist_y;
+	double		delta_dist_x;
+	double		delta_dist_y;
+	double		perp_wall_dist;
+	int			step_x;
+	int			step_y;
+	int			side;
+	double		wall_x;
+	int			lign_h;
+}	t_ray;
+
+typedef struct s_text
+{
+	int		start;
+	int		end;
+	int		tex_x;
+	double	step;
+	double	tex_p;
+}	t_text;
+
 typedef struct s_cub3d
 {
 	char			**map;
@@ -102,7 +128,7 @@ enum	e_error_codes
 	ERR_MAP_MOREPLAYER,
 };
 
-/***********************check_map****************************/
+/***********************parser****************************/
 int ft_check_info(t_info *info);
 int ft_check_map(char **map);
 int	ft_get_map(int fd, t_cub3d **cub3d);
@@ -111,6 +137,7 @@ int	ft_init_info(t_cub3d **cub3d);
 int	ft_get_info(int fd, t_cub3d **cub3d);
 int	ft_arraylen(char **str_array);
 void	ft_free_strarray(char **str_array);
+int	ft_set_player(t_cub3d *cub3d);
 
 /***********************image*******************************/
 int	ft_init_imgs(t_cub3d *cub);
@@ -119,5 +146,12 @@ int	ft_init_imgs(t_cub3d *cub);
 
 int	ft_return(int ret_code, t_cub3d *cub3d);
 void	ft_free_cub3d(t_cub3d *cub3d);
+
+/*************************exec**************************/
+int rgb_to_int(int *rgb);
+t_img   *chose_texture(t_cub3d *cub, t_ray ray);
+int	ft_print_smallmap(t_cub3d *cub, t_img_set *ig);
+void	dda(t_cub3d *cub, t_ray *ray, int map_x, int map_y);
+void	init_side_dist(t_cub3d *cub, t_ray *ray, int map_x, int map_y);
 
 #endif
