@@ -30,7 +30,7 @@ int	ft_return(int ret_code, t_cub3d *cub3d)
 	if (ret_code == ERR_MAP_OPEN)
 		ft_putstr_fd("Error\nMap not surrounded by walls\n", 1);
 	if (ret_code == ERR_MAP_CHAR)
-		ft_putstr_fd("Error\nMap contains invalid charecter(s)\n", 1);
+		ft_putstr_fd("Error\nMap contains  charecter(s)\n", 1);
 	if (ret_code == ERR_MAP_MOREPLAYER)
 		ft_putstr_fd("Error\nMust have one and only one player.\n", 1);
 	return (ret_code);

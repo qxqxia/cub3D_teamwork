@@ -14,6 +14,15 @@
 
 //ft_get_info et ft_get_map have get_next_line problem
 
+void test_ptable(char **table)
+{
+	while (*table)
+	{
+		printf("%s", *table);
+		table++;
+	}
+}
+
 int	*ft_get_colors_lp(char	**holder, int *colors, int	*colors_i)
 {
 	int	j;
@@ -21,7 +30,10 @@ int	*ft_get_colors_lp(char	**holder, int *colors, int	*colors_i)
 	j = 0;
 	while (holder[j])
 	{
+		if (holder[j][0] != '\n')
+		{
 		colors[*colors_i] = ft_atoi_unsig(holder[j]);
+		printf("\n******colors%d****\n", colors[*colors_i]);
 		if (*colors_i >= 4 || colors[*colors_i] > 255 || \
 			colors[*colors_i] < 0)
 		{
@@ -30,11 +42,13 @@ int	*ft_get_colors_lp(char	**holder, int *colors, int	*colors_i)
 			return (NULL);
 		}
 		(*colors_i) = (*colors_i) + 1;
+		
 		if ((*colors_i) == 4)
 		{
 			ft_free_strarray(holder);
 			free(colors);
 			return (NULL);
+		}
 		}
 		j++;
 	}
@@ -54,16 +68,21 @@ int	*ft_get_colors(char **line)
 	while (line[++i])
 	{
 		holder = ft_split(line[i], ',');
+		test_ptable(holder);
 		if ((i != 3 && line[i][ft_strlen(line[i]) - 1] != ',' && !holder[1]) || \
 			!holder[0])
 		{
+			//printf("test1\n");
 			free(colors);
 			ft_free_strarray(holder);
 			return (NULL);
 		}
 		colors = ft_get_colors_lp(holder, colors, &colors_i);
 		if (!colors)
+		{
+			//printf("test2\n");
 			return (NULL);
+		}
 		ft_free_strarray(holder);
 	}
 	return (colors);
@@ -78,6 +97,8 @@ int	ft_put_info_in_cub3d(char **info_array, t_info *info_struct)
 	while (info_array[++i])
 	{
 		line = ft_split(info_array[i], ' ');
+		ft_putstr_fd(line[0],1);
+
 		if (ft_strcmp(line[0], "NO") == 0)
 			info_struct->no = ft_strdup(line[1]);
 		else if (ft_strcmp(line[0], "SO") == 0)
@@ -87,13 +108,20 @@ int	ft_put_info_in_cub3d(char **info_array, t_info *info_struct)
 		else if (ft_strcmp(line[0], "EA") == 0)
 			info_struct->ea = ft_strdup(line[1]);
 		else if (ft_strcmp(line[0], "C") == 0)
+		{   
 			info_struct->c = ft_get_colors(line);
+			
+		}
 		else if (ft_strcmp(line[0], "F") == 0)
+		{
 			info_struct->f = ft_get_colors(line);
+		}
 		ft_free_strarray(line);
 	}
 	if (!info_struct->c || !info_struct->f)
+	{
 		return (1);
+	}
 	return (0);
 }
 
@@ -126,14 +154,14 @@ int	ft_get_info(int fd, t_cub3d **cub3d)
 	line = get_next_line(fd);
 	while (line && index < 6)
 	{
-		if (line[0] != '\0')
+		if (line[0] != '\0' && line[0] != '\n')
 		{
 			info_array[index] = line;
 			index++;
-			line = get_next_line(fd);
 		}
 		else
 			free(line);
+		line = get_next_line(fd);
 	}
 	if (line)
 		free(line);
