@@ -118,18 +118,21 @@ int	ft_get_info(int fd, t_cub3d **cub3d)
 	int		index;
 	char	**info_array;
 
+	line = NULL;
 	info_array = malloc(sizeof(char *) * 7);
 	if (!info_array)
 		return (ERR_MALLOC);
 	index = 0;
-	while (get_next_line(fd) && index < 6)
+	line = get_next_line(fd);
+	while (line && index < 6)
 	{
-		if (line && line[0] != '\0')
+		if (line[0] != '\0')
 		{
 			info_array[index] = line;
 			index++;
+			line = get_next_line(fd);
 		}
-		else if (line)
+		else
 			free(line);
 	}
 	if (line)

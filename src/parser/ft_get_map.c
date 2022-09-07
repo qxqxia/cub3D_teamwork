@@ -70,19 +70,19 @@ int	ft_get_map(int fd, t_cub3d **cub3d)
 	char	**map;
 
 	map = NULL;
-	temp = get_next_line(fd);
-	while (fd)
+	line = get_next_line(fd);
+	while (line)
 	{
 		if (line[0] != '\0')
 			map = ft_add_to_array(map, line);
 		else
 			free(line);
-		temp = get_next_line(fd);
+		line = get_next_line(fd);
 	}
-	if (!temp)
+	if (!line)
 		return (ERR_GNL);
-	//if (line)
-		//free(line);
+	if (line)
+		free(line);
 	(*cub3d)->map = map;
 	return (ft_check_map((*cub3d)->map));
 }
