@@ -6,11 +6,12 @@
 /*   By: qxia <qxia@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 15:35:59 by qxia              #+#    #+#             */
-/*   Updated: 2022/09/05 13:47:00 by qxia             ###   ########.fr       */
+/*   Updated: 2022/09/07 12:16:07 by qxia             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./include/cub3d.h"
+#include "cub3d.h"
+
 int	ft_return(int ret_code, t_cub3d *cub3d)
 {
 	ft_free_cub3d(cub3d);

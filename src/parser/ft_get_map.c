@@ -6,11 +6,11 @@
 /*   By: qxia <qxia@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 16:43:00 by qxia              #+#    #+#             */
-/*   Updated: 2022/09/02 11:42:58 by qxia             ###   ########.fr       */
+/*   Updated: 2022/09/07 12:15:43 by qxia             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/cub3d.h"
+#include "cub3d.h"
 
 int	ft_arraylen(char **str_array)
 {
@@ -70,7 +70,6 @@ int	ft_get_map(int fd, t_cub3d **cub3d)
 	char	**map;
 
 	map = NULL;
-	temp = 0;
 	temp = get_next_line(fd);
 	while (fd)
 	{
@@ -78,12 +77,12 @@ int	ft_get_map(int fd, t_cub3d **cub3d)
 			map = ft_add_to_array(map, line);
 		else
 			free(line);
-			temp = get_next_line(fd);
+		temp = get_next_line(fd);
 	}
 	if (!temp)
 		return (ERR_GNL);
-	if (line)
-		free(line);
+	//if (line)
+		//free(line);
 	(*cub3d)->map = map;
 	return (ft_check_map((*cub3d)->map));
 }

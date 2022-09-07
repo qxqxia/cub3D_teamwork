@@ -6,7 +6,7 @@
 #    By: qxia <qxia@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/21 14:09:27 by qxia              #+#    #+#              #
-#    Updated: 2022/09/06 16:07:28 by qxia             ###   ########.fr        #
+#    Updated: 2022/09/07 11:24:30 by qxia             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,6 +39,9 @@ SRCS := main.c \
 			src/exec/ft_init_images.c \
 			src/exec/ft_print_graphic.c \
 			src/exec/ft_print_smallmap.c \
+			src/events/close_game.c \
+			src/events/ft_key_control.c \
+			src/events/ft_move.c \
 
 OBJS := $(SRCS:%.c=%.o)
 

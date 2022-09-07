@@ -6,11 +6,11 @@
 /*   By: qxia <qxia@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/12 13:26:27 by qxia              #+#    #+#             */
-/*   Updated: 2022/09/02 11:08:26 by qxia             ###   ########.fr       */
+/*   Updated: 2022/09/07 12:15:57 by qxia             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/cub3d.h"
+#include "cub3d.h"
 
 int check_imgname(char *path)
 {

@@ -6,12 +6,15 @@
 /*   By: qxia <qxia@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 14:02:57 by qxia              #+#    #+#             */
-/*   Updated: 2022/09/06 16:21:33 by qxia             ###   ########.fr       */
+/*   Updated: 2022/09/07 11:32:18 by qxia             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D_H
 # define CUB3D_H
+
+# define MOVE_DIST 0.10
+# define SPD 0.10
 
 # include "../libft/libft.h"
 # include <unistd.h>
@@ -138,12 +141,16 @@ int	ft_get_info(int fd, t_cub3d **cub3d);
 int	ft_arraylen(char **str_array);
 void	ft_free_strarray(char **str_array);
 int	ft_set_player(t_cub3d *cub3d);
-
-/***********************image*******************************/
 int	ft_init_imgs(t_cub3d *cub);
 
 /*************************movment**************************/
-
+void		ft_move_w(t_cub3d *cub);
+void		ft_move_s(t_cub3d *cub);
+void		ft_move_a(t_cub3d *cub);
+void		ft_move_d(t_cub3d *cub);
+int	ft_atoi_unsig(const char *str);
+int ft_close(t_cub3d *cub3d);
+int	ft_key_event(int key, t_cub3d *cub3d);
 int	ft_return(int ret_code, t_cub3d *cub3d);
 void	ft_free_cub3d(t_cub3d *cub3d);
 
@@ -153,5 +160,6 @@ t_img   *chose_texture(t_cub3d *cub, t_ray ray);
 int	ft_print_smallmap(t_cub3d *cub, t_img_set *ig);
 void	dda(t_cub3d *cub, t_ray *ray, int map_x, int map_y);
 void	init_side_dist(t_cub3d *cub, t_ray *ray, int map_x, int map_y);
+void	ft_print_graphic(t_cub3d *cub);
 
 #endif

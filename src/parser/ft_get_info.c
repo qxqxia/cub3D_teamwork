@@ -6,13 +6,15 @@
 /*   By: qxia <qxia@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 10:41:48 by qxia              #+#    #+#             */
-/*   Updated: 2022/09/06 16:27:40 by qxia             ###   ########.fr       */
+/*   Updated: 2022/09/07 12:23:31 by qxia             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-/*int	*ft_get_colors_lp(char	**holder, int *colors, int	*colors_i)
+//ft_get_info et ft_get_map have get_next_line problem
+
+int	*ft_get_colors_lp(char	**holder, int *colors, int	*colors_i)
 {
 	int	j;
 
@@ -65,7 +67,7 @@ int	*ft_get_colors(char **line)
 		ft_free_strarray(holder);
 	}
 	return (colors);
-}*/
+}
 
 int	ft_put_info_in_cub3d(char **info_array, t_info *info_struct)
 {
@@ -84,14 +86,14 @@ int	ft_put_info_in_cub3d(char **info_array, t_info *info_struct)
 			info_struct->we = ft_strdup(line[1]);
 		else if (ft_strcmp(line[0], "EA") == 0)
 			info_struct->ea = ft_strdup(line[1]);
-		/*else if (ft_strcmp(line[0], "C") == 0)
+		else if (ft_strcmp(line[0], "C") == 0)
 			info_struct->c = ft_get_colors(line);
 		else if (ft_strcmp(line[0], "F") == 0)
 			info_struct->f = ft_get_colors(line);
-		ft_free_strarray(line);*/
+		ft_free_strarray(line);
 	}
-	/*if (!info_struct->c || !info_struct->f)
-		return (1);*/
+	if (!info_struct->c || !info_struct->f)
+		return (1);
 	return (0);
 }
 
