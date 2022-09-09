@@ -1,10 +1,10 @@
-NO     ./textures/bluestone.xpm   
+NO     ./textures/mossy.xpm   
 SO ./textures/greystone.xpm
 F  38,   26,  0   
 
 
-WE      ./textures/colorstone.xpm
-EA   ./textures/redbrick.xpm
+WE      ./textures/wood.xpm
+EA   ./textures/colorstone.xpm
 
 
 C 20, 134, 100
