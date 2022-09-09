@@ -1,13 +1,13 @@
 NO     ./textures/mossy.xpm   
 SO ./textures/greystone.xpm
-F  38,   26,  0   
+F  255,   204,  153  
 
 
 WE      ./textures/wood.xpm
 EA   ./textures/colorstone.xpm
 
 
-C 20, 134, 100
+C 0, 204, 204
 
 
 111
