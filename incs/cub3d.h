@@ -6,7 +6,7 @@
 /*   By: qxia <qxia@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 14:02:57 by qxia              #+#    #+#             */
-/*   Updated: 2022/09/07 11:32:18 by qxia             ###   ########.fr       */
+/*   Updated: 2022/09/09 12:55:51 by qxia             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,13 @@
 
 # define MOVE_DIST 0.10
 # define SPD 0.10
+# define XK_ESCAPE 0xff1b
+# define XK_W 0x0077
+# define XK_A 0x0061
+# define XK_S 0x0073
+# define XK_D 0x0064
+# define XK_LEFT 0xff51
+# define XK_RIGHT 0xff53
 
 # include "../libft/libft.h"
 # include <unistd.h>
@@ -25,16 +32,6 @@
 # include <math.h>
 # include <stdint.h>
 # include "../mlx/mlx.h"
-
-/**************Macros************************/
-
-#  define XK_ESCAPE 0xff1b
-#  define XK_W 0x0077
-#  define XK_A 0x0061
-#  define XK_S 0x0073
-#  define XK_D 0x0064
-#  define XK_LEFT 0xff51
-#  define XK_RIGHT 0xff53
 
 typedef struct s_img
 {
@@ -132,32 +129,32 @@ enum	e_error_codes
 };
 
 /***********************parser****************************/
-int ft_check_info(t_info *info);
-int ft_check_map(char **map);
-int	ft_get_map(int fd, t_cub3d **cub3d);
-int	ft_parser(char *filename, t_cub3d **cub3d);
-int	ft_init_info(t_cub3d **cub3d);
-int	ft_get_info(int fd, t_cub3d **cub3d);
-int	ft_arraylen(char **str_array);
+int		ft_check_info(t_info *info);
+int		ft_check_map(char **map);
+int		ft_get_map(int fd, t_cub3d **cub3d);
+int		ft_parser(char *filename, t_cub3d **cub3d);
+int		ft_init_info(t_cub3d **cub3d);
+int		ft_get_info(int fd, t_cub3d **cub3d);
+int		ft_arraylen(char **str_array);
 void	ft_free_strarray(char **str_array);
-int	ft_set_player(t_cub3d *cub3d);
-int	ft_init_imgs(t_cub3d *cub);
+int		ft_set_player(t_cub3d *cub3d);
+int		ft_init_imgs(t_cub3d *cub);
 
 /*************************movment**************************/
-void		ft_move_w(t_cub3d *cub);
-void		ft_move_s(t_cub3d *cub);
-void		ft_move_a(t_cub3d *cub);
-void		ft_move_d(t_cub3d *cub);
-int	ft_atoi_unsig(const char *str);
-int ft_close(t_cub3d *cub3d);
-int	ft_key_event(int key, t_cub3d *cub3d);
-int	ft_return(int ret_code, t_cub3d *cub3d);
+void	ft_move_w(t_cub3d *cub);
+void	ft_move_s(t_cub3d *cub);
+void	ft_move_a(t_cub3d *cub);
+void	ft_move_d(t_cub3d *cub);
+int		ft_atoi_unsig(const char *str);
+int		ft_close(t_cub3d *cub3d);
+int		ft_key_event(int key, t_cub3d *cub3d);
+int		ft_return(int ret_code, t_cub3d *cub3d);
 void	ft_free_cub3d(t_cub3d *cub3d);
 
 /*************************exec**************************/
-int rgb_to_int(int *rgb);
-t_img   *chose_texture(t_cub3d *cub, t_ray ray);
-int	ft_print_smallmap(t_cub3d *cub, t_img_set *ig);
+int		rgb_to_int(int *rgb);
+t_img	*chose_texture(t_cub3d *cub, t_ray ray);
+int		ft_print_smallmap(t_cub3d *cub, t_img_set *ig);
 void	dda(t_cub3d *cub, t_ray *ray, int map_x, int map_y);
 void	init_side_dist(t_cub3d *cub, t_ray *ray, int map_x, int map_y);
 void	ft_print_graphic(t_cub3d *cub);
