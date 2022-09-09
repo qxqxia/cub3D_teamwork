@@ -6,7 +6,7 @@
 /*   By: qxia <qxia@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 15:30:12 by qxia              #+#    #+#             */
-/*   Updated: 2022/09/06 15:39:30 by qxia             ###   ########.fr       */
+/*   Updated: 2022/09/09 14:45:29 by qxia             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 t_img	*ft_create_tile(t_cub3d *cub3d, unsigned int color, int size)
 {
 	t_img	*img_buffer;
-	int			i;
-	int			j;
-	char		*pixel;
+	int		i;
+	int		j;
+	char	*pixel;
 
 	img_buffer = malloc(sizeof(t_img));
 	img_buffer->img = mlx_new_image(cub3d->mlx, size, size);

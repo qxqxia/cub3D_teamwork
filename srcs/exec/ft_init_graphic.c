@@ -6,26 +6,26 @@
 /*   By: qxia <qxia@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 15:19:49 by qxia              #+#    #+#             */
-/*   Updated: 2022/09/06 16:06:45 by qxia             ###   ########.fr       */
+/*   Updated: 2022/09/09 14:48:04 by qxia             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int rgb_to_int(int *rgb)
+int	rgb_to_int(int *rgb)
 {
-    int color;
-    
-    color = rgb[0];
-    color = (color << 8) | rgb[1];
-    color = (color << 8) | rgb[2];
-    return (color);
+	int	color;
+
+	color = rgb[0];
+	color = (color << 8) | rgb[1];
+	color = (color << 8) | rgb[2];
+	return (color);
 }
 
-t_img   *chose_texture(t_cub3d *cub, t_ray ray)
+t_img	*chose_texture(t_cub3d *cub, t_ray ray)
 {
-    if (ray.side)
-    {
+	if (ray.side)
+	{
 		if (ray.dir_y > 0)
 			return (&cub->imgs->no);
 		if (ray.dir_y < 0)
@@ -93,5 +93,3 @@ void	init_side_dist(t_cub3d *cub, t_ray *ray, int map_x, int map_y)
 		ray->side_dist_y = (map_y + 1.0 - cub->plr->p_y) * ray->delta_dist_y;
 	}
 }
-
-

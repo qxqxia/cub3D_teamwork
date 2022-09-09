@@ -6,22 +6,11 @@
 /*   By: qxia <qxia@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 10:41:48 by qxia              #+#    #+#             */
-/*   Updated: 2022/09/09 10:53:33 by qxia             ###   ########.fr       */
+/*   Updated: 2022/09/09 14:49:11 by qxia             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-
-//ft_get_info et ft_get_map have get_next_line problem
-
-void test_ptable(char **table)
-{
-	while (*table)
-	{
-		printf("%s", *table);
-		table++;
-	}
-}
 
 int	*ft_get_colors_lp(char	**holder, int *colors, int	*colors_i)
 {
@@ -32,23 +21,21 @@ int	*ft_get_colors_lp(char	**holder, int *colors, int	*colors_i)
 	{
 		if (holder[j][0] != '\n')
 		{
-		colors[*colors_i] = ft_atoi_unsig(holder[j]);
-		printf("\n******colors%d****\n", colors[*colors_i]);
-		if (*colors_i >= 4 || colors[*colors_i] > 255 || \
-			colors[*colors_i] < 0)
-		{
-			ft_free_strarray(holder);
-			free(colors);
-			return (NULL);
-		}
-		(*colors_i) = (*colors_i) + 1;
-		
-		if ((*colors_i) == 4)
-		{
-			ft_free_strarray(holder);
-			free(colors);
-			return (NULL);
-		}
+			colors[*colors_i] = ft_atoi_unsig(holder[j]);
+			if (*colors_i >= 4 || colors[*colors_i] > 255 || \
+					colors[*colors_i] < 0)
+			{
+				ft_free_strarray(holder);
+				free(colors);
+				return (NULL);
+			}
+			(*colors_i) = (*colors_i) + 1;
+			if ((*colors_i) == 4)
+			{
+				ft_free_strarray(holder);
+				free(colors);
+				return (NULL);
+			}
 		}
 		j++;
 	}
@@ -72,7 +59,6 @@ int	*ft_get_colors(char **line)
 		if ((i != 3 && line[i][ft_strlen(line[i]) - 1] != ',' && !holder[1]) || \
 			!holder[0])
 		{
-			//printf("test1\n");
 			free(colors);
 			ft_free_strarray(holder);
 			return (NULL);
@@ -80,7 +66,6 @@ int	*ft_get_colors(char **line)
 		colors = ft_get_colors_lp(holder, colors, &colors_i);
 		if (!colors)
 		{
-			//printf("test2\n");
 			return (NULL);
 		}
 		ft_free_strarray(holder);
@@ -97,8 +82,7 @@ int	ft_put_info_in_cub3d(char **info_array, t_info *info_struct)
 	while (info_array[++i])
 	{
 		line = ft_split(info_array[i], ' ');
-		ft_putstr_fd(line[0],1);
-
+		ft_putstr_fd(line[0], 1);
 		if (ft_strcmp(line[0], "NO") == 0)
 			info_struct->no = ft_strdup(line[1]);
 		else if (ft_strcmp(line[0], "SO") == 0)
@@ -108,9 +92,8 @@ int	ft_put_info_in_cub3d(char **info_array, t_info *info_struct)
 		else if (ft_strcmp(line[0], "EA") == 0)
 			info_struct->ea = ft_strdup(line[1]);
 		else if (ft_strcmp(line[0], "C") == 0)
-		{   
+		{
 			info_struct->c = ft_get_colors(line);
-			
 		}
 		else if (ft_strcmp(line[0], "F") == 0)
 		{

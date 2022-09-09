@@ -6,7 +6,7 @@
 /*   By: qxia <qxia@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 15:44:40 by qxia              #+#    #+#             */
-/*   Updated: 2022/09/06 16:19:54 by qxia             ###   ########.fr       */
+/*   Updated: 2022/09/09 14:50:16 by qxia             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,9 +89,9 @@ void	ft_init_graphic(t_cub3d *cub)
 
 void	ft_print_graphic(t_cub3d *cub)
 {
-	double		x;
+	double	x;
 	t_img	*graphic;
-	t_ray		ray;
+	t_ray	ray;
 	t_img	*texture;
 
 	if (!(cub->imgs->graphic))

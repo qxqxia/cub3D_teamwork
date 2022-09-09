@@ -6,13 +6,13 @@
 /*   By: qxia <qxia@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 15:52:45 by qxia              #+#    #+#             */
-/*   Updated: 2022/09/06 15:57:58 by qxia             ###   ########.fr       */
+/*   Updated: 2022/09/09 14:38:01 by qxia             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void    ft_set_plane(t_cub3d *cub3d, char player)
+void	ft_set_plane(t_cub3d *cub3d, char player)
 {
 	if (player == 'N')
 	{
@@ -39,7 +39,7 @@ void    ft_set_plane(t_cub3d *cub3d, char player)
 
 void	ft_set_direction(t_cub3d *cub3d, char player)
 {
-	if ( player == 'N')
+	if (player == 'N')
 	{
 		cub3d->plr->d_x = -1;
 		cub3d->plr->d_y = 0;

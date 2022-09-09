@@ -6,7 +6,7 @@
 /*   By: qxia <qxia@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 13:47:23 by qxia              #+#    #+#             */
-/*   Updated: 2022/09/06 16:28:45 by qxia             ###   ########.fr       */
+/*   Updated: 2022/09/09 14:33:18 by qxia             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ void	ft_free_cub3d(t_cub3d *cub3d)
 			mlx_destroy_window(cub3d->mlx, cub3d->win);
 		if (cub3d->mlx)
 		{
-            mlx_destroy_display(cub3d->mlx);
+			mlx_destroy_display(cub3d->mlx);
 			free(cub3d->mlx);
 		}
 		free(cub3d);

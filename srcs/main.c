@@ -6,7 +6,7 @@
 /*   By: qxia <qxia@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 14:32:02 by qxia              #+#    #+#             */
-/*   Updated: 2022/09/07 12:16:12 by qxia             ###   ########.fr       */
+/*   Updated: 2022/09/09 14:33:29 by qxia             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	run_game(t_cub3d *cub3d)
 
 int	main(int argc, char *argv[])
 {
-	int	ret;
+	int		ret;
 	t_cub3d	*cub3d;
 
 	ret = -1;
@@ -43,7 +43,7 @@ int	main(int argc, char *argv[])
 		return (ft_return(ERR_ARGS, cub3d));
 	ret = ft_parser(argv[1], &cub3d);
 	if (ret != 0)
-		return(ft_return(ret, cub3d));
+		return (ft_return(ret, cub3d));
 	cub3d->imgs = malloc(sizeof(t_img_set));
 	cub3d->mlx = mlx_init();
 	if (ft_init_imgs(cub3d))
@@ -52,5 +52,3 @@ int	main(int argc, char *argv[])
 		return (ft_return(ERR_INFO, cub3d));
 	return (0);
 }
-
-

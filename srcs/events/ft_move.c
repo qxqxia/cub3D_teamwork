@@ -6,7 +6,7 @@
 /*   By: qxia <qxia@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 15:13:37 by qxia              #+#    #+#             */
-/*   Updated: 2022/09/07 11:32:00 by qxia             ###   ########.fr       */
+/*   Updated: 2022/09/09 14:51:41 by qxia             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,8 @@ void	ft_rotate_player(t_cub3d *cub, int key)
 		cub->plr->d_x = cub->plr->d_x * cos(-SPD) - cub->plr->d_y * sin(-SPD);
 		cub->plr->d_y = olddir_x * sin(-SPD) + cub->plr->d_y * cos(-SPD);
 		oldplane_x = cub->plr->pl_x;
-		cub->plr->pl_x = cub->plr->pl_x * cos(-SPD) - cub->plr->pl_y * sin(-SPD);
+		cub->plr->pl_x
+			= cub->plr->pl_x * cos(-SPD) - cub->plr->pl_y * sin(-SPD);
 		cub->plr->pl_y = oldplane_x * sin(-SPD) + cub->plr->pl_y * cos(-SPD);
 	}
 }
