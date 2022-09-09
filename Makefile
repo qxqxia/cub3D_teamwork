@@ -6,67 +6,100 @@
 #    By: qxia <qxia@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/21 14:09:27 by qxia              #+#    #+#              #
-#    Updated: 2022/09/07 11:24:30 by qxia             ###   ########.fr        #
+#    Updated: 2022/09/09 11:34:42 by qxia             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = cub3D
+CC				=	clang
+RM				=	rm -rf
+AR				=	ar rcs
+NAME			=	cub3D
+BONUS			=	cub3D_bonus
 
-CC = clang
+# **************************************************************************** #
+#       FLAGS                                                                  #
+# **************************************************************************** #
+OS				=	$(shell uname)
+CFLAGS			=	-Wall -Wextra -Werror
+MLX_FLAGS		=	-Lmlx -lbsd -lXext -lX11 -lm
 
-IFLAGS = -I./include -I./mlx -I./libft
 
-LFLAGS = -L./libft -lft
+# **************************************************************************** #
+#       SOURCES                                                                #
+# **************************************************************************** #
+SRCS_DIR		=	srcs
+INCS_DIR		=	incs
 
-CFLAG = -Wall -Wextra -Werror
+SRCS			=	main.c \
+					parser/parse_map.c \
+					parser/ft_get_info.c \
+					parser/check_map_util.c \
+					parser/ft_get_map.c \
+					parser/check_map.c \
+					parser/ft_player.c \
+					exec/ft_print_smallmap.c \
+					exec/ft_print_graphic.c \
+					exec/ft_init_images.c \
+					exec/ft_init_graphic.c \
+					events/close_game.c \
+					events/ft_move.c \
+					events/ft_key_control.c \
+					ft_return.c \
+					ft_free_cub3d.c \
 
-MFLAGS = -L./mlx -lmlx -lXext -lX11 -lm
+INCS			=	cub3d.h \
 
-MLX_DIR := ./mlx
+# **************************************************************************** #
+#       LIBRARIES                                                              #
+# **************************************************************************** #
+LIBFT_A			=	libft.a
+LIBFT_DIR		=	libft
+LIBMLX_A		=	libmlx.a
+LIBMLX_DIR		=	mlx
 
-MLX = libmlx.a
 
-SRCS := main.c \
-			ft_return.c \
-			ft_free_cub3d.c \
-			src/parser/check_map_util.c \
-			src/parser/check_map.c \
-			src/parser/ft_get_map.c \
-			src/parser/ft_get_info.c \
-			src/parser/parse_map.c \
-			src/parser/ft_player.c \
-			src/exec/ft_init_graphic.c \
-			src/exec/ft_init_images.c \
-			src/exec/ft_print_graphic.c \
-			src/exec/ft_print_smallmap.c \
-			src/events/close_game.c \
-			src/events/ft_key_control.c \
-			src/events/ft_move.c \
+# **************************************************************************** #
+#       RULES                                                                  #
+# **************************************************************************** #
+OBJS			=	$(addprefix $(SRCS_DIR)/,$(SRCS:.c=.o))
 
-OBJS := $(SRCS:%.c=%.o)
+%.o				:	%.c
+					$(CC) $(CFLAGS) -I $(INCS_DIR) -c $< -o $@ 
 
-$(NAME): $(OBJS)
-	@$(MAKE) -C $(MLX_DIR)
-	@$(MAKE) -C ./libft
-	@cp $(MLX_DIR)/$(MLX) .
-	@$(CC) $(CFLAGS) $(OBJS) $(IFLAGS) -o $@ $(LFLAGS) $(MFLAGS)
+$(NAME)			:	$(OBJS) $(LIBFT_A) $(LIBMLX_A)
+					$(CC) -o $@ $(OBJS) -I $(INCS_DIR) $(LIBFT_A) $(LIBMLX_A) $(MLX_FLAGS)
 
-all: $(NAME)
+$(BONUS)		:	$(OBJS) $(LIBFT_A) $(LIBMLX_A)
+					$(CC) -o $@ $(OBJS) -I $(INCS_DIR) $(LIBFT_A) $(LIBMLX_A) $(MLX_FLAGS)
 
-clean:
-	@rm -rf $(OBJS)
-	@rm -rf $(MLX)
-	@$(MAKE) -C ./libft clean
+$(LIBFT_A)		:
+					make -C $(LIBFT_DIR) $(LIBFT_FLAGS)
+					mv $(LIBFT_DIR)/$(LIBFT_A) .
 
-fclean: clean
-	@$(MAKE) -C ./libft fclean
-	@$(MAKE) -C $(MLX_DIR) clean >/dev/null
-	@rm -rf $(MLX)
-	@rm -rf $(NAME)
+$(LIBMLX_A)		:
+					make -C $(LIBMLX_DIR)
+					mv $(LIBMLX_DIR)/$(LIBMLX_A) .
 
-re: fclean all
+all				:	$(NAME)
 
-%.o: %.c
-	@$(CC) $(CFLAGS) $(IFLAGS) -c $< -o $@
+bonus			:	$(BONUS)
 
-.PHONY: all clean fclean re
+clean			:
+					$(RM) $(OBJS) $(LIBFT_A)
+					make clean -C $(LIBFT_DIR)
+					make clean -C $(LIBMLX_DIR)
+
+fclean			:	clean
+					$(RM) $(NAME)
+					$(RM) $(BONUS)
+					$(RM) $(LIBFT_A)
+					$(RM) $(LIBMLX_A)
+					make fclean -C $(LIBFT_DIR)
+
+
+re				:	fclean all
+
+# **************************************************************************** #
+#       PHONY                                                                  #
+# **************************************************************************** #
+.PHONY			:	all bonus clean fclean re

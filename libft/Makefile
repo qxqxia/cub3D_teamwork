@@ -6,7 +6,7 @@
 #    By: qxia <qxia@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/29 11:11:09 by rliu              #+#    #+#              #
-#    Updated: 2022/09/05 10:02:35 by qxia             ###   ########.fr        #
+#    Updated: 2022/09/09 11:30:09 by qxia             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,44 +45,37 @@ SRCS = ft_isalpha.c \
 		ft_putendl_fd.c \
 		ft_putnbr_fd.c\
 		ft_strcmp.c \
-		get_next_line.c \
 
-BONUS = ft_lstnew.c \
-		ft_lstadd_front.c \
-		ft_lstsize.c \
-		ft_lstlast.c \
-		ft_lstadd_back.c \
-		ft_lstdelone.c \
-		ft_lstclear.c \
-		ft_lstiter.c \
-		ft_lstmap.c\
+GNL_SRCS		=	get_next_line/get_next_line.c \
+					get_next_line/get_next_line_utils.c \
+					get_next_line/get_next_line_nodes.c \
 
+CC				=	gcc
+RM				=	rm -rf
+AR				=	ar rcs
 
-OBJS = $(SRCS:.c=.o)
+LIBFT_A			=	libft.a
 
-OBJB = $(BONUS:.c=.o)
+OBJS			=	$(SRCS:.c=.o)
+GNL_OBJS		=	$(GNL_SRCS:.c=.o)
 
-FLAGS = -Wall -Wextra -Werror -fPIE
+INCS			=	libft.h \
+					get_next_line/get_next_line.h \
 
-NAME = libft.a
+%.o				:	%.c $(INCS)
+					$(CC) $(CFLAGS) -c $< -o $@
 
-%.o:	%.c
-	gcc $(FLAGS) -c $< -o $@
+$(LIBFT_A)		:	$(OBJS) $(GNL_OBJS)
+					$(AR) $(LIBFT_A) $(OBJS) $(GNL_OBJS)
 
-all: $(NAME) bonus 
+all				:	$(LIBFT_A)
 
-bonus:      ${OBJB} ${OBJS}
-		ar rcs ${NAME} ${OBJS} ${OBJB}
+clean			:
+					$(RM) $(OBJS) $(GNL_OBJS)
 
-$(NAME):	$(OBJS)
-		ar rcs $(NAME) $(OBJS)
+fclean			:	clean
+					$(RM) $(LIBFT_A)
 
-clean:
-		rm -f $(OBJS) $(OBJB)
+re				:	fclean all
 
-fclean:	clean
-		rm -f $(NAME)
-
-re:	fclean $(NAME)
-
-.PHONY:     all fclean clean re bonus
+.PHONY			:	all clean fclean re

@@ -6,7 +6,7 @@
 /*   By: qxia <qxia@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/26 20:19:52 by rliu              #+#    #+#             */
-/*   Updated: 2022/09/05 10:02:26 by qxia             ###   ########.fr       */
+/*   Updated: 2022/09/09 10:52:30 by qxia             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,21 @@
 # include <unistd.h>
 # include <stdlib.h>
 
+#include "./get_next_line/get_next_line.h"
+
+typedef struct s_node
+{
+	void			*content;
+	struct s_node	*next;
+	struct s_node	*previous;
+}					t_node;
+
+typedef struct s_deque
+{
+	t_node			*head;
+	t_node			*tail;
+	int				length;
+}					t_deque;
 // part1
 int		ft_isalpha(int c);
 int		ft_isdigit(int i);
@@ -54,23 +69,5 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
-// bonus
-typedef struct s_list
-{
-	void			*content;
-	struct s_list	*next;
-}t_list;
-t_list	*ft_lstnew(void *content);
-void	ft_lstadd_front(t_list **alst, t_list *new);
-int		ft_lstsize(t_list *lst);
-t_list	*ft_lstlast(t_list *lst);
-void	ft_lstadd_back(t_list **alst, t_list *new);
-void	ft_lstdelone(t_list *lst, void (*del)(void*));
-void	ft_lstclear(t_list **lst, void (*del)(void *));
-void	ft_lstiter(t_list *lst, void (*f)(void *));
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void(*del)(void *));
-
-//supplimentaire
-char	*get_next_line(int fd);
 
 #endif
