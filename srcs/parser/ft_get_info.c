@@ -6,7 +6,7 @@
 /*   By: qxia <qxia@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 10:41:48 by qxia              #+#    #+#             */
-/*   Updated: 2022/09/09 14:49:11 by qxia             ###   ########.fr       */
+/*   Updated: 2022/09/09 14:58:10 by qxia             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,6 @@ int	*ft_get_colors(char **line)
 	while (line[++i])
 	{
 		holder = ft_split(line[i], ',');
-		test_ptable(holder);
 		if ((i != 3 && line[i][ft_strlen(line[i]) - 1] != ',' && !holder[1]) || \
 			!holder[0])
 		{
@@ -82,7 +81,6 @@ int	ft_put_info_in_cub3d(char **info_array, t_info *info_struct)
 	while (info_array[++i])
 	{
 		line = ft_split(info_array[i], ' ');
-		ft_putstr_fd(line[0], 1);
 		if (ft_strcmp(line[0], "NO") == 0)
 			info_struct->no = ft_strdup(line[1]);
 		else if (ft_strcmp(line[0], "SO") == 0)
