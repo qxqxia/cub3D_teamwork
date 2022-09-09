@@ -6,7 +6,7 @@
 /*   By: qxia <qxia@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/26 20:19:52 by rliu              #+#    #+#             */
-/*   Updated: 2022/09/09 10:52:30 by qxia             ###   ########.fr       */
+/*   Updated: 2022/09/09 13:00:04 by qxia             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,7 @@
 # include <stdio.h>
 # include <unistd.h>
 # include <stdlib.h>
-
-#include "./get_next_line/get_next_line.h"
+# include "./get_next_line/get_next_line.h"
 
 typedef struct s_node
 {
@@ -32,7 +31,7 @@ typedef struct s_deque
 	t_node			*tail;
 	int				length;
 }					t_deque;
-// part1
+
 int		ft_isalpha(int c);
 int		ft_isdigit(int i);
 int		ft_isalnum(int i);
@@ -57,7 +56,6 @@ int		ft_atoi(const char *str);
 void	*ft_calloc(size_t count, size_t size);
 char	*ft_strdup(const char *s1);
 int		ft_strcmp(char *s1, char *s2);
-// part2
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strtrim(char const *s1, char const *set);

@@ -6,22 +6,15 @@
 /*   By: rliu <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/16 19:38:20 by rliu              #+#    #+#             */
-/*   Updated: 2022/05/13 18:15:18 by rliu             ###   ########.fr       */
+/*   Updated: 2022/09/09 13:05:34 by qxia             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*int	ft_strcmp(char *s1, char *s2)
-{
-	int	i;
+#include "libft.h"
 
-	i = 0;
-	while (s1[i] && s2[i] && (s1[i] == s2[i]))
-		i++;
-	return (s1[i] - s2[i]);
-}*/
 int	ft_strcmp(const char *s1, const char *s2)
 {
-	int		index;
+	size_t			index;
 	unsigned char	*s1_holder;
 	unsigned char	*s2_holder;
 
