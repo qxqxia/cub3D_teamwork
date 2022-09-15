@@ -6,7 +6,7 @@
 /*   By: qxia <qxia@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 16:19:52 by qxia              #+#    #+#             */
-/*   Updated: 2022/09/09 14:37:49 by qxia             ###   ########.fr       */
+/*   Updated: 2022/09/15 14:43:22 by qxia             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ static int	ft_check_close(char **map, int size)
 		while (j < str_len)
 		{
 			if (!ft_map_shape(map, i, j, size))
-				return (ERR_MAP_OPEN);
+				return (ERR_MAP_WALL);
 			j++;
 		}
 		i++;

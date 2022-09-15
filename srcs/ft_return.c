@@ -6,7 +6,7 @@
 /*   By: qxia <qxia@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 15:35:59 by qxia              #+#    #+#             */
-/*   Updated: 2022/09/09 14:33:39 by qxia             ###   ########.fr       */
+/*   Updated: 2022/09/15 14:43:15 by qxia             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	ft_return(int ret_code, t_cub3d *cub3d)
 		ft_putstr_fd("Error\nInvalid information\n", 1);
 	if (ret_code == ERR_MAP_NULL)
 		ft_putstr_fd("Error\nNo map\n", 1);
-	if (ret_code == ERR_MAP_OPEN)
+	if (ret_code == ERR_MAP_WALL)
 		ft_putstr_fd("Error\nMap not surrounded by walls\n", 1);
 	if (ret_code == ERR_MAP_CHAR)
 		ft_putstr_fd("Error\nMap contains  charecter(s)\n", 1);

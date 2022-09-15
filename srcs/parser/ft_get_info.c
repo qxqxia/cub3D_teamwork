@@ -6,7 +6,7 @@
 /*   By: qxia <qxia@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 10:41:48 by qxia              #+#    #+#             */
-/*   Updated: 2022/09/09 14:58:10 by qxia             ###   ########.fr       */
+/*   Updated: 2022/09/15 14:57:04 by qxia             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,23 +19,20 @@ int	*ft_get_colors_lp(char	**holder, int *colors, int	*colors_i)
 	j = 0;
 	while (holder[j])
 	{
-		if (holder[j][0] != '\n')
+		colors[*colors_i] = ft_atoi_unsig(holder[j]);
+		if (*colors_i >= 4 || colors[*colors_i] > 255 || \
+			colors[*colors_i] < 0)
 		{
-			colors[*colors_i] = ft_atoi_unsig(holder[j]);
-			if (*colors_i >= 4 || colors[*colors_i] > 255 || \
-					colors[*colors_i] < 0)
-			{
-				ft_free_strarray(holder);
-				free(colors);
-				return (NULL);
-			}
-			(*colors_i) = (*colors_i) + 1;
-			if ((*colors_i) == 4)
-			{
-				ft_free_strarray(holder);
-				free(colors);
-				return (NULL);
-			}
+			ft_free_strarray(holder);
+			free(colors);
+			return (NULL);
+		}
+		(*colors_i) = (*colors_i) + 1;
+		if ((*colors_i) == 4)
+		{
+			ft_free_strarray(holder);
+			free(colors);
+			return (NULL);
 		}
 		j++;
 	}
@@ -64,9 +61,7 @@ int	*ft_get_colors(char **line)
 		}
 		colors = ft_get_colors_lp(holder, colors, &colors_i);
 		if (!colors)
-		{
 			return (NULL);
-		}
 		ft_free_strarray(holder);
 	}
 	return (colors);
@@ -90,19 +85,13 @@ int	ft_put_info_in_cub3d(char **info_array, t_info *info_struct)
 		else if (ft_strcmp(line[0], "EA") == 0)
 			info_struct->ea = ft_strdup(line[1]);
 		else if (ft_strcmp(line[0], "C") == 0)
-		{
 			info_struct->c = ft_get_colors(line);
-		}
 		else if (ft_strcmp(line[0], "F") == 0)
-		{
 			info_struct->f = ft_get_colors(line);
-		}
 		ft_free_strarray(line);
 	}
 	if (!info_struct->c || !info_struct->f)
-	{
 		return (1);
-	}
 	return (0);
 }
 

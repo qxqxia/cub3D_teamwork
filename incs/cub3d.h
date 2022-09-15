@@ -6,7 +6,7 @@
 /*   By: qxia <qxia@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 14:02:57 by qxia              #+#    #+#             */
-/*   Updated: 2022/09/09 12:55:51 by qxia             ###   ########.fr       */
+/*   Updated: 2022/09/15 14:43:06 by qxia             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,7 +123,7 @@ enum	e_error_codes
 	ERR_MALLOC,
 	ERR_INFO,
 	ERR_MAP_NULL,
-	ERR_MAP_OPEN,
+	ERR_MAP_WALL,
 	ERR_MAP_CHAR,
 	ERR_MAP_MOREPLAYER,
 };
