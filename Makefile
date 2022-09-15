@@ -21,7 +21,7 @@ SRCS_DIR	=	srcs
 INCS_DIR	=	incs
 SRCS		=	main.c \
 				parser/parse_map.c \
-				parser/ft_get_info.c \
+				parser/ft_get_info.c parser/ft_get_info_utile.c \
 				parser/check_map_util.c \
 				parser/ft_get_map.c \
 				parser/check_map.c \

@@ -135,6 +135,7 @@ int		ft_get_map(int fd, t_cub3d **cub3d);
 int		ft_parser(char *filename, t_cub3d **cub3d);
 int		ft_init_info(t_cub3d **cub3d);
 int		ft_get_info(int fd, t_cub3d **cub3d);
+int		ft_put_info_in_cub3d(char **info_array, t_info *info_struct);
 int		ft_arraylen(char **str_array);
 void	ft_free_strarray(char **str_array);
 int		ft_set_player(t_cub3d *cub3d);
