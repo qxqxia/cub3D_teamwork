@@ -6,7 +6,7 @@
 /*   By: qxia <qxia@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 10:41:48 by qxia              #+#    #+#             */
-/*   Updated: 2022/09/15 14:57:04 by qxia             ###   ########.fr       */
+/*   Updated: 2022/09/15 16:15:32 by qxia             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ int	*ft_get_colors(char **line)
 	return (colors);
 }
 
-int	ft_put_info_in_cub3d(char **info_array, t_info *info_struct)
+/*int	ft_put_info_in_cub3d(char **info_array, t_info *info_struct)
 {
 	char	**line;
 	int		i;
@@ -93,6 +93,85 @@ int	ft_put_info_in_cub3d(char **info_array, t_info *info_struct)
 	if (!info_struct->c || !info_struct->f)
 		return (1);
 	return (0);
+}*/
+
+int    ft_put_info_in_cub3d(char **info_array, t_info *info_struct)
+{
+    char    **line;
+    int        i;
+
+    i = -1;
+    info_struct->no = NULL;
+    info_struct->so = NULL;
+    info_struct->we = NULL;
+    info_struct->ea = NULL;
+    info_struct->c = NULL;
+    info_struct->f = NULL;
+    while (info_array[++i])
+    {
+        line = ft_split(info_array[i], ' ');
+        if (ft_strcmp(line[0], "NO") == 0)
+        {
+            if (info_struct->no)
+            {
+                ft_free_strarray(line);
+                return (1);
+            }
+            info_struct->no = ft_strdup(line[1]);
+        }
+        else if (ft_strcmp(line[0], "SO") == 0)
+            {
+            if (info_struct->so)
+            {
+                ft_free_strarray(line);
+                return (1);
+            }
+            info_struct->so = ft_strdup(line[1]);
+        }
+        else if (ft_strcmp(line[0], "WE") == 0)
+            {
+            if (info_struct->we)
+            {
+                ft_free_strarray(line);
+                return (1);
+            }
+			if (line[1])
+            	info_struct->we = ft_strdup(line[1]);
+        }
+        else if (ft_strcmp(line[0], "EA") == 0)
+            {
+            if (info_struct->ea)
+            {
+                ft_free_strarray(line);
+                return (1);
+            }
+				info_struct->ea = ft_strdup(line[1]);
+        }
+        else if (ft_strcmp(line[0], "C") == 0)
+        {
+            if (info_struct->c)
+            {
+                ft_free_strarray(line);
+                return (1);
+            }
+            info_struct->c = ft_get_colors(line);
+        }
+        else if (ft_strcmp(line[0], "F") == 0)
+        {
+            if (info_struct->f)
+            {
+                ft_free_strarray(line);
+                return (1);
+            }
+            info_struct->f = ft_get_colors(line);
+        }
+        ft_free_strarray(line);
+    }
+    if (!info_struct->c || !info_struct->f || !info_struct->we || !info_struct->we[0])
+    {
+        return (1);
+    }
+    return (0);
 }
 
 int	ft_put_info(t_cub3d **cub3d, char **info_array)
