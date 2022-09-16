@@ -6,7 +6,7 @@
 /*   By: qxia <qxia@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 14:02:57 by qxia              #+#    #+#             */
-/*   Updated: 2022/09/15 14:43:06 by qxia             ###   ########.fr       */
+/*   Updated: 2022/09/16 11:55:01 by qxia             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -140,6 +140,7 @@ int		ft_arraylen(char **str_array);
 void	ft_free_strarray(char **str_array);
 int		ft_set_player(t_cub3d *cub3d);
 int		ft_init_imgs(t_cub3d *cub);
+int		*ft_get_colors(char **line);
 
 /*************************movment**************************/
 void	ft_move_w(t_cub3d *cub);

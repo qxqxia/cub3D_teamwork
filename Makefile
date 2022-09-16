@@ -6,7 +6,7 @@
 #    By: qxia <qxia@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/21 14:09:27 by qxia              #+#    #+#              #
-#    Updated: 2022/09/15 14:31:37 by qxia             ###   ########.fr        #
+#    Updated: 2022/09/16 11:54:11 by qxia             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,9 @@ SRCS_DIR	=	srcs
 INCS_DIR	=	incs
 SRCS		=	main.c \
 				parser/parse_map.c \
-				parser/ft_get_info.c parser/ft_get_info_utile.c \
+				parser/ft_get_info.c \
+				parser/ft_get_info_utile1.c \
+				parser/ft_get_info_utile2.c \
 				parser/check_map_util.c \
 				parser/ft_get_map.c \
 				parser/check_map.c \

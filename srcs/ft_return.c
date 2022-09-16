@@ -6,7 +6,7 @@
 /*   By: qxia <qxia@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 15:35:59 by qxia              #+#    #+#             */
-/*   Updated: 2022/09/15 14:43:15 by qxia             ###   ########.fr       */
+/*   Updated: 2022/09/16 11:59:53 by qxia             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	ft_return(int ret_code, t_cub3d *cub3d)
 	if (ret_code == ERR_MAP_WALL)
 		ft_putstr_fd("Error\nMap not surrounded by walls\n", 1);
 	if (ret_code == ERR_MAP_CHAR)
-		ft_putstr_fd("Error\nMap contains  charecter(s)\n", 1);
+		ft_putstr_fd("Error\nMap contains  character(s)\n", 1);
 	if (ret_code == ERR_MAP_MOREPLAYER)
 		ft_putstr_fd("Error\nMust have one and only one player.\n", 1);
 	return (ret_code);
